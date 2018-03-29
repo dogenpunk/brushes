@@ -1,11 +1,29 @@
 require "test_helper"
 
-class BrushesTest < Minitest::Test
-  def test_that_it_has_a_version_number
-    refute_nil ::Brushes::VERSION
+describe Brushes do
+  it 'has a version number' do
+    ::Brushes::VERSION.wont_be_nil
   end
 
-  def test_it_does_something_useful
-    assert false
+  describe Brushes::Gallery do
+    it 'is empty by default' do
+      Brushes::Gallery.new.must_be_empty
+    end
+
+    it 'can add an image' do
+      gallery = Brushes::Gallery.new
+      gallery.images << Brushes::Image.new
+
+      gallery.images.wont_be_empty
+    end
+
+    it 'retains an image' do
+      gallery = Brushes::Gallery.new
+      image = Brushes::Image.new
+
+      gallery.images << image
+
+      gallery.images.first.must_be_same_as image
+    end
   end
 end

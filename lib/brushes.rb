@@ -1,5 +1,20 @@
 require "brushes/version"
 
 module Brushes
-  # Your code goes here...
+  class Image
+  end
+
+  class Gallery
+    def initialize
+      @images = []
+    end
+
+    def images
+      @images
+    end
+
+    def empty?
+      true
+    end
+  end
 end
