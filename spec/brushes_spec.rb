@@ -12,18 +12,26 @@ describe Brushes do
 
     it 'can add an image' do
       gallery = Brushes::Gallery.new
-      gallery.images << Brushes::Image.new
+      gallery << Brushes::Image.new
 
-      gallery.images.wont_be_empty
+      gallery.wont_be_empty
     end
 
     it 'retains an image' do
       gallery = Brushes::Gallery.new
       image = Brushes::Image.new
 
-      gallery.images << image
+      gallery << image
 
-      gallery.images.first.must_be_same_as image
+      gallery.first.must_be_same_as image
+    end
+
+    it 'is not empty after adding an image' do
+      gallery = Brushes::Gallery.new
+
+      gallery << Brushes::Image.new
+
+      gallery.wont_be_empty
     end
   end
 end

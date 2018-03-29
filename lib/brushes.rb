@@ -5,16 +5,13 @@ module Brushes
   end
 
   class Gallery
+    extend Forwardable
+
+    def_delegators :@images, :empty?, :<<, :first
+
     def initialize
       @images = []
     end
 
-    def images
-      @images
-    end
-
-    def empty?
-      true
-    end
   end
 end
