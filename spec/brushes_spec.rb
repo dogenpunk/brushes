@@ -1,4 +1,4 @@
-require "test_helper"
+require "spec_helper"
 
 describe Brushes do
   it 'has a version number' do
