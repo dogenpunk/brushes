@@ -1,4 +1,4 @@
-require "spec_helper"
+require 'spec_helper'
 
 describe Brushes do
   it 'has a version number' do
@@ -28,10 +28,19 @@ describe Brushes do
 
     it 'is not empty after adding an image' do
       gallery = Brushes::Gallery.new
-
       gallery << Brushes::Image.new
 
       gallery.wont_be_empty
+    end
+
+    it 'holds many images' do
+      gallery = Brushes::Gallery.new
+
+      3.times do
+        gallery << Brushes::Image.new
+      end
+
+      gallery.count.must_equal 3
     end
   end
 end
